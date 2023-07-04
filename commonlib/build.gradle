@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
+    id 'kotlin-kapt'
 
 }
 
@@ -15,6 +16,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -33,13 +38,40 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    def lifecycle_version = "2.2.0"
+    def rxhttp_version = '3.0.6'
+
+
+    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
+    implementation  'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
+    implementation  'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
+
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+
+//    // Saved state module for ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+//    // Annotation processor
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+
+
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation "com.github.liujingxing.rxhttp:rxhttp:$rxhttp_version"
+    kapt "com.github.liujingxing.rxhttp:rxhttp-compiler:$rxhttp_version"
+
+    implementation 'com.github.li-xiaojun:XPopup:2.6.2'
+
+
 }
 
 afterEvaluate {
