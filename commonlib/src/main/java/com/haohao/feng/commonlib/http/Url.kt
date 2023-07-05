@@ -10,7 +10,7 @@ import rxhttp.wrapper.annotation.DefaultDomain
  */
 object Url {
 
-
+    @JvmField
     @DefaultDomain //设置为默认域名
     var BASE_URL = "https://app.chime.me"   //线上
 
