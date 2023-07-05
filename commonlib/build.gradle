@@ -47,13 +47,6 @@ dependencies {
 
     def lifecycle_version = "2.2.0"
     def rxhttp_version = '3.0.6'
-
-
-    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
-    implementation  'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
-    implementation  'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
-
-
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
 
